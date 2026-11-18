@@ -29,7 +29,8 @@ export type Role = {
   location: string;
   positions: [Position, ...Position[]];
   summary?: string;
-  highlights?: string[];
+  /** `title` labels the branch on the experience tree; `detail` is the full line. */
+  highlights?: { title: string; detail: string }[];
   caseStudies?: CaseStudy[];
 };
 

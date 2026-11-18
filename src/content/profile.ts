@@ -100,9 +100,19 @@ export const profile = {
         },
       ],
       highlights: [
-        "Migrated a document-processing CRM from Angular to React.",
-        "Mentored 2–4 developers and ran technical interviews.",
-        "Built client apps from scratch in Next.js and Tailwind — e.g. a fitness app with multi-step forms, charts and i18n — scoring 95+ in Lighthouse.",
+        {
+          title: "Angular → React migration",
+          detail: "Migrated a document-processing CRM from Angular to React.",
+        },
+        {
+          title: "Mentoring and interviews",
+          detail: "Mentored 2–4 developers and ran technical interviews.",
+        },
+        {
+          title: "Client apps in Next.js",
+          detail:
+            "Built client apps from scratch in Next.js and Tailwind — e.g. a fitness app with multi-step forms, charts and i18n — scoring 95+ in Lighthouse.",
+        },
       ],
     },
   ],

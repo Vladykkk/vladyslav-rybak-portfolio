@@ -47,7 +47,18 @@ Animations SHALL be limited to entrance and hover effects that do not delay read
 
 #### Scenario: Content not gated by animation
 - **WHEN** JavaScript has not yet loaded
-- **THEN** all text content is already visible in the page
+- **THEN** all text content is already visible in the page, apart from Experience details the career tree reveals on interaction
+
+### Requirement: Experience career tree
+The Experience section MAY show one role, case study or highlight in detail at a time, picked from a career tree by click, keyboard focus or, on wide screens, mouse hover. Every detail SHALL be present in the server-rendered HTML, every tree item SHALL be operable by keyboard, and the tree itself SHALL show each role's company, titles, dates, employment type, work mode and location without interaction.
+
+#### Scenario: Before JavaScript loads
+- **WHEN** JavaScript has not yet loaded
+- **THEN** the full tree and the current role's detail are visible, and every other detail is in the HTML but hidden
+
+#### Scenario: Switching items
+- **WHEN** a visitor moves between tree items
+- **THEN** the layout below the Experience section does not move
 
 ### Requirement: Navigation
 The page SHALL provide navigation to every section that works with mouse, touch and keyboard, and external links SHALL open in a new tab with safe link attributes.

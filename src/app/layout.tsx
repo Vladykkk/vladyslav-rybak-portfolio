@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 
+import { ThemeScript } from "@/components/theme-toggle";
 import { profile } from "@/content/profile";
 import { siteUrl } from "@/lib/site";
 
@@ -29,9 +30,6 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, description },
 };
 
-// Runs before first paint: saved choice wins, otherwise the OS preference.
-const themeScript = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.classList.add("dark")})()`;
-
 const [city, country] = profile.location.split(", ");
 const current = profile.roles[0];
 const personJsonLd = {
@@ -58,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
