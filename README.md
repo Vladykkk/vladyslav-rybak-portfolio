@@ -22,7 +22,7 @@ Open http://localhost:3000.
 | `npm run build`        | Production build (also type-checks)       |
 | `npm start`            | Serve the production build                |
 | `npm run lint`         | ESLint                                    |
-| `npm run typecheck`    | `tsc --noEmit`                            |
+| `npm run typecheck`    | Generate route types, then `tsc --noEmit` |
 | `npm run format`       | Format everything with Prettier           |
 | `npm run format:check` | Check formatting without writing          |
 | `npm test`             | Run the `node --test` checks in `src/lib` |
