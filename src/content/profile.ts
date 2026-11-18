@@ -110,9 +110,11 @@ export const profile = {
           built: [
             "Statically rendered landing pages with technical SEO",
             "Optimized images, fonts and metadata",
+            "Generative engine optimization (GEO) so AI assistants can find and cite the pages",
           ],
           tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-          outcome: "100 in all four Lighthouse categories.",
+          outcome:
+            "100 in all four Lighthouse categories, plus more traffic and more CV applications from SEO and GEO.",
         },
       ],
     },
