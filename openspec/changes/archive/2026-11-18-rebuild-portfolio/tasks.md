@@ -31,7 +31,7 @@
 - [x] 6.1 Define `src/content/types.ts` (identity, career start, roles grouped by company with positions, case studies, skill groups, achievements, education, languages, contact, CV path) per `specs/portfolio-content`; verify `npm run typecheck` passes
 - [x] 6.2 Write `src/content/profile.ts` with `satisfies Profile`, filled from LinkedIn and the current CV: `careerStart` August 2024; Future Wealth Group (Full Stack Engineer, full-time, remote, Switzerland, Jul 2025 – Present; coordinates a team of 3 developers — code reviews, coding standards, communication framework) with case studies for the internal CRM (including RBAC, JWT auth and 2FA), self-hosted CI/CD with Docker and NGINX, and SEO landing pages (Lighthouse 100), no delivery-speed figure; Insiders (Trainee Aug–Dec 2024, Junior Dec 2024 – Jul 2025) with the three highlights from `specs/portfolio-content`; eight skill groups incl. AI & Productivity (Cursor, Claude Code, Codex, Gemini); achievements; Bachelor's in Information Technology, Lviv Polytechnic National University, 2023–2026; English B2 / Ukrainian native; email, LinkedIn, GitHub; verify removing a required field (e.g. a role's start date) makes `npm run build` fail naming that field
 - [x] 6.3 Implement the years-of-experience helper (from `careerStart`, nearest half year, halves round up) with one `node --test` check: Aug 2024 → Oct 2026 = 2, → Nov 2026 = 2.5 (exact halfway), → May 2027 = 3; add an `npm test` script; verify `npm test` passes
-- [ ] 6.4 Review every case study against the NDA rules in `specs/portfolio-content` (no screenshots, client names, internal metrics, or internal architecture); verify by owner sign-off recorded in the PR description
+- [x] 6.4 Review every case study against the NDA rules in `specs/portfolio-content` (no screenshots, client names, internal metrics, or internal architecture); verify by owner sign-off recorded in the PR description
 - [x] 6.5 Write `README.md` covering what the project is, local setup, scripts, and "how to update your profile" (edit `profile.ts`, replace `public/cv.pdf`); verify the documented commands run as written
 
 ## 7. Visual system and primitives
@@ -55,8 +55,8 @@
 ## 9. SEO and metadata
 
 - [x] 9.1 Add `siteUrl` constant and root `metadata` (title "Vladyslav Rybak — Full Stack Engineer", description under 160 characters, canonical, `metadataBase`, Open Graph, Twitter card) and `lang="en"`; verify the rendered `<head>` contains each tag
-- [ ] 9.2 Add `opengraph-image.tsx` (1200×630, name and title from `profile.ts`); verify `/opengraph-image` returns a 1200×630 PNG and a pasted preview URL shows it in a link-preview debugger
-- [ ] 9.3 Render `Person` JSON-LD from `profile.ts` (name, job title, employer, location, LinkedIn, GitHub); verify a structured data validator reports a valid `Person` with no errors
+- [x] 9.2 Add `opengraph-image.tsx` (1200×630, name and title from `profile.ts`); verify `/opengraph-image` returns a 1200×630 PNG and a pasted preview URL shows it in a link-preview debugger
+- [x] 9.3 Render `Person` JSON-LD from `profile.ts` (name, job title, employer, location, LinkedIn, GitHub); verify a structured data validator reports a valid `Person` with no errors
 - [x] 9.4 Add `sitemap.ts` and `robots.ts` (allow only when `VERCEL_ENV === "production"`); verify production serves both and a preview's `robots.txt` disallows all
 - [x] 9.5 Add `icon.png` and `apple-icon.png` in the new identity; verify the browser tab shows the custom icon
 
