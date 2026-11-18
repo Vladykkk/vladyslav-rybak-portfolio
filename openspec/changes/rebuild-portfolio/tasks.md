@@ -19,11 +19,11 @@
 
 ## 4. CI
 
-- [ ] 4.1 Create `.github/workflows/ci.yml`: triggers `workflow_dispatch`, `pull_request` (`types: [opened, synchronize]`), `push` to `main`; steps `actions/checkout@v4`, `actions/setup-node@v4` (`node-version-file: .nvmrc`, `cache: npm`), `npm ci`, `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm test`; verify by opening a PR with a lint error (check fails) and then fixing it (check passes)
+- [ ] 4.1 Create `.github/workflows/ci.yml`: triggers `workflow_dispatch`, `pull_request` (`types: [opened, synchronize]`), `push` to `main`; steps `actions/checkout@v5`, `actions/setup-node@v5` (`node-version-file: .nvmrc`, `cache: npm`), `npm ci`, `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm test`; verify by opening a PR with a lint error (check fails) and then fixing it (check passes)
 
 ## 5. Deployment
 
-- [ ] 5.1 Push the scaffold to `main` and import the repo into Vercel (production branch `main`); verify the `*.vercel.app` production URL serves the placeholder page
+- [x] 5.1 Push the scaffold to `main` and import the repo into Vercel (production branch `main`); verify the `*.vercel.app` production URL serves the placeholder page
 - [ ] 5.2 Open a test PR; verify Vercel posts a unique preview URL on it and the preview response carries `X-Robots-Tag: noindex`
 
 ## 6. Content model
@@ -62,9 +62,9 @@
 
 ## 10. Release checks
 
-- [ ] 10.1 Run Lighthouse (mobile and desktop) against the production URL; verify 100 in Performance, Accessibility, Best Practices and SEO, and fix any regression before continuing
-- [ ] 10.2 Run an automated accessibility audit (e.g. axe) in both themes; verify zero contrast and heading-order violations
-- [ ] 10.3 Walk the page at 320px, 360px, 768px and 1440px in both themes with reduced motion on and off; verify no horizontal scroll, all sections reachable from Nav, and no tutorial-era visuals present
+- [x] 10.1 Run Lighthouse (mobile and desktop) against the production URL; verify 100 in Performance, Accessibility, Best Practices and SEO, and fix any regression before continuing
+- [x] 10.2 Run an automated accessibility audit (e.g. axe) in both themes; verify zero contrast and heading-order violations
+- [x] 10.3 Walk the page at 320px, 360px, 768px and 1440px in both themes with reduced motion on and off; verify no horizontal scroll, all sections reachable from Nav, and no tutorial-era visuals present
 
 ## Workflow follow-up
 
