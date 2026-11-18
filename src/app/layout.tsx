@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const title = `${profile.name} — ${profile.title}`;
-const description = `${profile.title} building web products with ${profile.topStack.join(", ")}. Based in ${profile.location}, open to remote roles.`;
+const description = `${profile.title} — ${profile.topStack.join(", ")}. ${profile.location}, open to remote roles.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

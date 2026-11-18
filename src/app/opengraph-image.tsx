@@ -28,6 +28,21 @@ export default function OpengraphImage() {
       <div style={{ fontSize: 32, color: "#a8b0bd", marginTop: 40 }}>
         {profile.topStack.join(" · ")}
       </div>
+      <div
+        style={{
+          display: "flex",
+          alignSelf: "flex-start",
+          marginTop: 56,
+          padding: "16px 32px",
+          borderRadius: 999,
+          background: "#5fdcc0",
+          color: "#141a22",
+          fontSize: 32,
+          fontWeight: 700,
+        }}
+      >
+        Open to remote roles — view portfolio →
+      </div>
     </div>,
     size,
   );
