@@ -14,3 +14,6 @@ export const sections = [
   { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ] as const;
+
+// @ts-ignore -- deliberate lint error for CI verification (task 4.1)
+export const ciCheck = 1;
