@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import { ThemeScript } from "@/components/theme-toggle";
 import { profile } from "@/content/profile";
@@ -7,8 +7,9 @@ import { siteUrl } from "@/lib/site";
 
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const sans = Hanken_Grotesk({ variable: "--font-hanken", subsets: ["latin"] });
+const mono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
@@ -52,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} antialiased`}
+      className={`${sans.variable} ${mono.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

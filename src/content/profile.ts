@@ -1,9 +1,40 @@
-import type { Profile } from "./types";
+import type { Achievement, Profile } from "./types";
+
+const achievements: [Achievement, ...Achievement[]] = [
+  {
+    title: "3rd place — BEST::HACKath0n Lviv",
+    detail: "Placed third in a team hackathon organized by BEST Lviv.",
+    date: "2023-05",
+    certificate: "/certificates/best-lviv-certificate.png",
+  },
+  {
+    title: "Hackathon INT20H by BEST Kyiv",
+    detail: "Participated in the INT20H hackathon.",
+    date: "2023-02",
+    certificate: "/certificates/best-kyiv-certificate.png",
+  },
+  {
+    title: "Mentoring and technical interviews",
+    detail:
+      "Mentored 2–4 developers and ran technical interviews for new hires.",
+  },
+  {
+    title: "Angular → React migration",
+    detail: "Led the migration of a document-processing CRM to React.",
+  },
+  {
+    title: "Lighthouse 100",
+    detail:
+      "Shipped landing pages scoring 100 in all four Lighthouse categories.",
+  },
+];
 
 export const profile = {
   name: "Vladyslav Rybak",
   title: "Full Stack Engineer",
   location: "Lviv, Ukraine",
+  timeZone: "Europe/Kyiv",
+  coordinates: "49.84° N, 24.03° E",
   openToRemote: true,
   bio: [
     "I build full stack web products with TypeScript — from Next.js frontends to Node.js APIs, databases and the pipelines that ship them.",
@@ -18,10 +49,6 @@ export const profile = {
     "PostgreSQL",
     "Docker",
   ],
-  heroHighlight: {
-    label: "Hackathon",
-    value: "3rd place — BEST::HACKath0n Lviv",
-  },
   roles: [
     {
       company: "Future Wealth Group",
@@ -55,18 +82,26 @@ export const profile = {
           flow: ["Sign in", "2FA check", "JWT issued", "RBAC on each request"],
         },
         {
-          title: "Self-hosted CI/CD",
+          title: "Self-hosted GitLab & CI/CD",
           context:
-            "Releases needed to be repeatable and run on the company's own infrastructure.",
-          role: "Built the delivery pipeline",
+            "Code and releases needed to live on the company's own infrastructure, with quality and security enforced automatically.",
+          role: "Set up and run the platform and pipelines",
           built: [
-            "Automated checks and builds on every push",
+            "Self-hosted GitLab with CI/CD pipelines for checks, builds and deploys",
+            "Automated tests, security checks and code quality checks on every push",
             "Containerized services deployed behind a reverse proxy",
           ],
-          tech: ["GitHub Actions", "Docker", "NGINX"],
+          tech: ["GitLab", "GitLab CI/CD", "Docker", "NGINX"],
           outcome:
-            "Deployments are automated and reproducible instead of manual.",
-          flow: ["Push", "CI checks", "Docker build", "Deploy", "NGINX"],
+            "Every change is tested, scanned and deployed automatically instead of by hand.",
+          flow: [
+            "Push",
+            "Tests",
+            "Security & quality checks",
+            "Docker build",
+            "Deploy",
+            "NGINX",
+          ],
         },
         {
           title: "SEO-focused landing pages",
@@ -100,68 +135,32 @@ export const profile = {
         },
       ],
       highlights: [
-        {
-          title: "Angular → React migration",
-          detail: "Migrated a document-processing CRM from Angular to React.",
-        },
-        {
-          title: "Mentoring and interviews",
-          detail: "Mentored 2–4 developers and ran technical interviews.",
-        },
-        {
-          title: "Client apps in Next.js",
-          detail:
-            "Built client apps from scratch in Next.js and Tailwind — e.g. a fitness app with multi-step forms, charts and i18n — scoring 95+ in Lighthouse.",
-        },
+        "Migrated a document-processing CRM from Angular to React.",
+        "Mentored 2–4 developers and ran technical interviews.",
+        "Built client apps from scratch in Next.js and Tailwind — e.g. a fitness app with multi-step forms, charts and i18n — scoring 95+ in Lighthouse.",
       ],
     },
   ],
   // From the CV; Express and Nest.js (backend) come from LinkedIn.
   skills: {
     Core: ["TypeScript", "JavaScript", "Node.js"],
-    "Frameworks & Libraries": [
-      "React",
-      "Next.js",
-      "Angular",
-      "Express",
-      "Nest.js",
-    ],
+    "Frameworks & Libraries": ["React", "Next.js", "Express", "Nest.js"],
     UI: ["Tailwind CSS", "shadcn/ui", "MUI", "SCSS", "Motion"],
     // TODO(owner): the CV only names React Context here; add your form/state libraries.
-    "State & Forms": ["React Context"],
+    "State & Forms": ["Zustand", "React Context"],
     "Payments & CMS": ["Stripe", "Strapi", "Payload"],
-    "DevOps & Tooling": ["Git", "Docker", "NGINX", "GitHub Actions", "Vercel"],
+    "DevOps & Tooling": [
+      "Git",
+      "GitLab",
+      "Docker",
+      "NGINX",
+      "GitHub Actions",
+      "Vercel",
+    ],
     Databases: ["PostgreSQL", "MongoDB"],
-    "AI & Productivity": ["Cursor", "Claude Code", "Codex", "Gemini"],
+    "AI & Productivity": ["Claude Code", "Codex", "Gemini"],
   },
-  achievements: [
-    {
-      title: "3rd place — BEST::HACKath0n Lviv",
-      detail: "Placed third in a team hackathon organized by BEST Lviv.",
-      date: "2023-05",
-      certificate: "/certificates/best-lviv-certificate.png",
-    },
-    {
-      title: "Hackathon INT20H by BEST Kyiv",
-      detail: "Participated in the INT20H hackathon.",
-      date: "2023-02",
-      certificate: "/certificates/best-kyiv-certificate.png",
-    },
-    {
-      title: "Mentoring and technical interviews",
-      detail:
-        "Mentored 2–4 developers and ran technical interviews for new hires.",
-    },
-    {
-      title: "Angular → React migration",
-      detail: "Led the migration of a document-processing CRM to React.",
-    },
-    {
-      title: "Lighthouse 100",
-      detail:
-        "Shipped landing pages scoring 100 in all four Lighthouse categories.",
-    },
-  ],
+  achievements,
   education: {
     degree: "Bachelor's degree",
     field: "Information Technology",

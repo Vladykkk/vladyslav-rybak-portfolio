@@ -21,3 +21,12 @@ export function formatMonth(ym: YearMonth): string {
 
 export const formatPeriod = ({ start, end }: Position) =>
   `${formatMonth(start)} – ${end ? formatMonth(end) : "Present"}`;
+
+/** Inclusive length of a position, e.g. "1y 5m"; an open position runs to `now`. */
+export function formatDuration({ start, end }: Position, now = new Date()) {
+  const [sy, sm] = parse(start);
+  const [ey, em] = end ? parse(end) : [now.getFullYear(), now.getMonth() + 1];
+  const months = (ey - sy) * 12 + (em - sm) + 1;
+  const [y, m] = [Math.floor(months / 12), months % 12];
+  return [y && `${y}y`, m && `${m}m`].filter(Boolean).join(" ");
+}

@@ -1,50 +1,44 @@
 import { Section } from "@/components/section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { profile } from "@/content/profile";
+
+const label =
+  "mb-2 font-mono text-[11px] tracking-widest text-muted-foreground uppercase";
 
 export function About() {
   const { education: edu } = profile;
 
   return (
     <Section id="about" title="About">
-      <div className="grid gap-4 lg:grid-cols-3">
-        <Card className="p-6 lg:col-span-2">
-          <div className="space-y-4 text-base leading-relaxed">
-            {profile.bio.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </Card>
-        <Card className="gap-5 py-6">
-          <CardHeader className="px-6">
-            <CardTitle>
-              <h3>Education</h3>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-1 px-6">
+      <div className="grid md:grid-cols-[minmax(0,1fr)_18rem] md:divide-x">
+        <div className="space-y-4 p-4 text-base leading-relaxed text-pretty sm:p-6 sm:text-lg">
+          {profile.bio.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
+        <div className="divide-y border-t md:border-t-0">
+          <div className="p-4 sm:p-6">
+            <h3 className={label}>Education</h3>
             <p className="font-medium">
               {edu.degree} in {edu.field}
             </p>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {edu.school}, {edu.start}–{edu.end}
             </p>
-          </CardContent>
-          <CardHeader className="px-6">
-            <CardTitle>
-              <h3>Languages</h3>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="px-6">
+          </div>
+          <div className="p-4 sm:p-6">
+            <h3 className={label}>Languages</h3>
             <ul className="space-y-1">
               {profile.languages.map((l) => (
-                <li key={l.name}>
-                  <span className="font-medium">{l.name}</span>{" "}
-                  <span className="text-muted-foreground">— {l.level}</span>
+                <li key={l.name} className="flex justify-between gap-4">
+                  <span className="font-medium">{l.name}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {l.level}
+                  </span>
                 </li>
               ))}
             </ul>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </Section>
   );

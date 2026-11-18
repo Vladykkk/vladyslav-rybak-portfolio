@@ -1,8 +1,6 @@
 /** Calendar month as "YYYY-MM", e.g. "2024-08". */
 export type YearMonth = `${number}-${number}`;
 
-export type Link = { label: string; href: string };
-
 export type Position = {
   title: string;
   start: YearMonth;
@@ -29,20 +27,10 @@ export type Role = {
   location: string;
   positions: [Position, ...Position[]];
   summary?: string;
-  /** `title` labels the branch on the experience tree; `detail` is the full line. */
-  highlights?: { title: string; detail: string }[];
+  /** One line each, rendered as bullets. */
+  highlights?: string[];
   caseStudies?: CaseStudy[];
 };
-
-export type SkillGroupName =
-  | "Core"
-  | "Frameworks & Libraries"
-  | "UI"
-  | "State & Forms"
-  | "Payments & CMS"
-  | "DevOps & Tooling"
-  | "Databases"
-  | "AI & Productivity";
 
 export type Achievement = {
   title: string;
@@ -51,20 +39,20 @@ export type Achievement = {
   certificate?: string;
 };
 
-export type HeroFact = { label: string; value: string };
-
 export type Profile = {
   name: string;
   title: string;
   location: string;
+  /** IANA zone for the live local-time line, e.g. "Europe/Kyiv". */
+  timeZone: string;
+  /** Decorative caption on the hero cover. */
+  coordinates: string;
   openToRemote: boolean;
   bio: string[];
   careerStart: YearMonth;
   topStack: string[];
-  /** Hero fact card, e.g. the hackathon placement. */
-  heroHighlight: HeroFact;
   roles: Role[];
-  skills: Record<SkillGroupName, string[]>;
+  skills: Record<string, string[]>;
   achievements: Achievement[];
   education: {
     degree: string;

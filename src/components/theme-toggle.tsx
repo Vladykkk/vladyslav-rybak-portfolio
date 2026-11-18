@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect } from "react";
+import { type MouseEvent, useLayoutEffect } from "react";
 
 import { Moon, Sun } from "lucide-react";
 
@@ -37,11 +37,31 @@ export function ThemeToggle() {
   // Dev Strict Mode remount resets <html> className, dropping `dark`. No-op in production.
   useLayoutEffect(applyTheme, []);
 
-  const toggle = () => {
-    const dark = document.documentElement.classList.toggle("dark");
-    try {
-      localStorage.setItem("theme", dark ? "dark" : "light");
-    } catch {}
+  const toggle = (e: MouseEvent<HTMLButtonElement>) => {
+    const root = document.documentElement;
+    const flip = () => {
+      const dark = root.classList.toggle("dark");
+      try {
+        // Picking the OS scheme again means "follow the OS", so drop the override.
+        if (matchMedia("(prefers-color-scheme: dark)").matches === dark) {
+          localStorage.removeItem("theme");
+        } else {
+          localStorage.setItem("theme", dark ? "dark" : "light");
+        }
+      } catch {}
+    };
+
+    if (
+      !document.startViewTransition ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return flip();
+    }
+    // Grow the new theme as a circle from the button's center (works for keyboard too).
+    const r = e.currentTarget.getBoundingClientRect();
+    root.style.setProperty("--vt-x", `${r.left + r.width / 2}px`);
+    root.style.setProperty("--vt-y", `${r.top + r.height / 2}px`);
+    document.startViewTransition(flip);
   };
 
   return (

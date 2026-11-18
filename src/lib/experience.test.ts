@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { formatMonth, yearsOfExperience } from "./experience.ts";
+import {
+  formatDuration,
+  formatMonth,
+  yearsOfExperience,
+} from "./experience.ts";
 
 test("years of experience rounds to the nearest half year, halves up", () => {
   assert.equal(yearsOfExperience("2024-08", new Date(2026, 9)), 2); // Oct 2026, 26 months
@@ -10,3 +14,18 @@ test("years of experience rounds to the nearest half year, halves up", () => {
 });
 
 test("formatMonth", () => assert.equal(formatMonth("2024-08"), "Aug 2024"));
+
+test("formatDuration counts both end months", () => {
+  assert.equal(
+    formatDuration({ title: "", start: "2024-08", end: "2024-12" }),
+    "5m",
+  );
+  assert.equal(
+    formatDuration({ title: "", start: "2024-01", end: "2024-12" }),
+    "1y",
+  );
+  assert.equal(
+    formatDuration({ title: "", start: "2025-07" }, new Date(2026, 10)),
+    "1y 5m",
+  );
+});
